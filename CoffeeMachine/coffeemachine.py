@@ -1,6 +1,5 @@
-'''CoffeeMachine simulator'''
 class CoffeeMachine:
-
+'''CoffeMachine simulator'''
     running = False
 
     def __init__(self, water, milk, coffee_beans, cups, money):
@@ -11,8 +10,9 @@ class CoffeeMachine:
         self.money = money
         if not CoffeeMachine.running:
             self.start()
-'''Menu of choices'''
+
     def start(self):
+        '''Menu of choices'''
         self.running = True
         self.action = input("Write action: <buy> <fill> <take> <remaining> <exit>\n")
         print()
@@ -55,8 +55,9 @@ class CoffeeMachine:
         self.coffee_beans -= self.reduced[2]
         self.cups -= self.reduced[3]
         self.money += self.reduced[4]
-'''Buying menu'''
+
     def buy(self):
+        '''Buying menu'''
         self.choice = input("What do you want to buy? <1> Espresso <2> Latte <3> Cappuccino <back> - main menu:\n")
         if self.choice == '1':
             self.reduced = [250, 0, 16, 1, 4]
@@ -77,8 +78,9 @@ class CoffeeMachine:
             self.return_to_menu()
 
         self.return_to_menu()
-'''Refill menu'''
+
     def fill(self):
+        '''Refill menu'''
         self.water += int(input("How many ml of water do you want to add:\n"))
         self.milk += int(input("How many ml of milk do you want to add:\n"))
         self.coffee_beans += int(input("How many grams of coffee beans do you want to add:\n"))
@@ -89,8 +91,9 @@ class CoffeeMachine:
         print(f"I gave you ${self.money}")
         self.money -= self.money
         self.return_to_menu()
-'''Status of coffeemachine'''
+
     def status(self):
+        '''Status of coffeemachine'''
         print(f"The coffee machine has:")
         print(f"{self.water} of water")
         print(f"{self.milk} of milk")
